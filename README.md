@@ -1,3 +1,17 @@
+# Dot.CV
+## Simple CV Creator App
+
+Hi! this is my **first sveltejs** project! so I hope it will be as its assumed \^_^
+
+[Visit it from hear](https://dot-cv.vercel.app)
+
+### build by:
+1. [Sveltejs](https://svelte.dev)
+2. [UIKit](https://getuikit.com)
+3. deploy preview version on [Vercel](https://vercel.com/)
+4. And that is it!
+
+
 *Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
 
 ---
