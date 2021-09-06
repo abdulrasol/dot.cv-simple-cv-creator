@@ -1,9 +1,8 @@
-# Dot.CV
+# Dot.CV [Demo](https://dot-cv.vercel.app)
 ## Simple CV Creator App
 
 Hi! this is my **first sveltejs** project! so I hope it will be as its assumed \^_^
 
-# [Demo](https://dot-cv.vercel.app)
 
 ### build by:
 1. [Sveltejs](https://svelte.dev)
