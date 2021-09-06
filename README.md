@@ -12,8 +12,6 @@ Hi! this is my **first sveltejs** project! so I hope it will be as its assumed \
 4. And that is it!
 
 
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
-
 ---
 
 # svelte app
