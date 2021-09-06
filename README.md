@@ -3,7 +3,7 @@
 
 Hi! this is my **first sveltejs** project! so I hope it will be as its assumed \^_^
 
-[Visit it from hear](https://dot-cv.vercel.app)
+# [Demo](https://dot-cv.vercel.app)
 
 ### build by:
 1. [Sveltejs](https://svelte.dev)
