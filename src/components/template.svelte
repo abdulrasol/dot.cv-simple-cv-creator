@@ -15,19 +15,21 @@
     certifications: []
 };
 </script>
-<div id="print-doc" class="print">
-    <div class="my-container">
+
+<div class="my-container">
+    <div id="print-doc" class="print">
     <!-- side container -->
         <div class="side green">
             <!-- cards -->
 
             <!-- profile image container -->
-           <!--  <div class="my-card">
-                <div class="image">
-                    <img id="user-profile-image" src={CV.img} alt={CV.name} srcset="">
+            {#if CV.img}
+                <div class="my-card">
+                    <div class="image">
+                        <img id="user-profile-image" src={CV.img} alt={CV.name} srcset="">
+                    </div>
                 </div>
-            </div> -->
-
+            {/if}
             <!-- persoanl info -->
             <div class="my-card contact">
                 <div class="card-title">
@@ -230,7 +232,7 @@
     <!-- end right container -->
     </div>
 </div>
-
+<div id="print-svg" class="print"></div>
 <style>
     /* CV Main Container */
 
@@ -292,12 +294,15 @@
         margin: auto;
         width: 95%;
         min-height: 100px;
-        border: 1px solid #CCC;
+        
         display: flex;
         align-items: stretch;
 
     }
-
+    #print-doc {
+        display: flex;
+        align-items: stretch;
+    }
     /* Colors Classes */
 
     /* side */
