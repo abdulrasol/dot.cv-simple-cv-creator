@@ -16,100 +16,101 @@
 };
 </script>
 
-<div class="my-container">
-    <div id="print-doc" class="print">
-    <!-- side container -->
-        <div class="side green">
-            <!-- cards -->
+<div class="container">
+        <div id="print-doc" class="print">
+            <!-- side container -->
+            <div class="side green">
+                <!-- cards -->
 
-            <!-- profile image container -->
-            {#if CV.img}
-                <div class="my-card">
-                    <div class="image">
-                        <img id="user-profile-image" src={CV.img} alt={CV.name} srcset="">
+                <!-- profile image container -->
+                {#if CV.img}
+
+                <div class="image">
+                    <img id="user-profile-image" src={CV.img} alt='{CV.name}' srcset="">
+                </div>
+
+                 {/if}
+                <!-- persoanl info -->
+                <div class="card contact">
+                    <div class="card-title">
+                        <span>Contact Me</span>
+                    </div>
+                    <div class="card-content">
+                        <span>
+                            <i class="fas fa-map-marker-alt"></i>{CV.contacts.address.value}</span>
+    
+                        <a href="tel:{CV.contacts.phone}">
+                            <span>
+                                <i class="fas fa-phone"></i>{CV.contacts.phone.value}</span>
+                        </a>
+                        <a href="mailto:{CV.contacts.email.value}">
+                            <span>
+                                <i class="fas fa-at"></i>{CV.contacts.email.value}</span>
+                        </a>
                     </div>
                 </div>
-            {/if}
-            <!-- persoanl info -->
-            <div class="my-card contact">
-                <div class="card-title">
-                    <span>Contact Me</span>
-                </div>
-                <div class="card-content">
-                    <span>
-                        <i class="fas fa-map-marker-alt"></i>{CV.contacts.address.value}</span>
-                    <a href="mailto:{CV.contacts.email.value}">
-                        <span>
-                            <i class="fas fa-at"></i>{CV.contacts.email.value}</span>
-                    </a>
-                    <a href="tel:{CV.contacts.phone}">
-                        <span>
-                            <i class="fas fa-phone"></i>{CV.contacts.phone.value}</span>
-                    </a>
-                </div>
-            </div>
-            <!-- End persoanl info -->
+                <!-- End persoanl info -->
 
-            <!-- Professional skills -->
-            <div class="my-card skills">
-                <div class="card-title">
-                    <span>Professional skills</span>
-                </div>
-                <div class="card-content">
-                    {#each CV.professionalSkills as skill, index (index) }
-                        <span transition:fly="{{y: 200, duration:400}}" animate:flip='{{duration: 500}}'>{skill}</span>
-                    {/each}
-                </div>
-            </div>
-            <!-- End Professional skills -->
-
-            <!-- soft skills -->
-            <div class="my-card soft">
-                <div class="card-title">
-                    <span>Soft skills</span>
-                </div>
-                <div class="card-content">
-                    <ul>
-                        {#each CV.softSkills as  skill, index (index)}
-                            <li transition:fly='{{x:-200, duration:500}}' animate:flip='{{duration: 500}}'>{skill}</li>
+                <!-- Professional skills -->
+                <div class="card skills">
+                    <div class="card-title">
+                        <span>Professional skills</span>
+                    </div>
+                    <div class="card-content">
+                        {#each CV.professionalSkills as skill, index (index) }
+                            <span transition:fly="{{y: 200, duration:400}}" animate:flip='{{duration: 500}}'>{skill}</span>
                         {/each}
-                        
-                    </ul>
+                    </div>
                 </div>
-            </div>
-            <!-- End soft skills -->
+                <!-- End Professional skills -->
 
-            <!-- start langs -->
-            <div class="my-card langs">
-                <div class="card-title">
-                    <span>Languages</span>
-                </div>
-                <div class="card-content">
-                    {#each CV.languages as  language, index (index)}
-                        <div animate:flip='{{duration: 500}}'>
-                            <h4 transition:fly='{{x:-200, duration:500}}'>{language.language}</h4>
-                            <span transition:fly='{{x:-200, duration:500}}'>{language.level}</span>
-                        </div>
-                    {/each}
-                    
-                </div>
-            </div>
-            <!-- End lang -->
+                <!-- soft skills -->
+                <div class="card soft">
+                    <div class="card-title">
+                        <span>Soft skills</span>
+                    </div>
+                    <div class="card-content">
+                        <ul>
+                            {#each CV.softSkills as  skill, index (index)}
+                                <li transition:fly='{{x:-200, duration:500}}' animate:flip='{{duration: 500}}'>{skill}</li>
+                            {/each}
 
-            <!-- start langs -->
-            <div class="my-card social">
-                <div class="card-title">
-                    <span>Social</span>
+                        </ul>
+                    </div>
                 </div>
-                <div class="card-content">
-                    {#each CV.socials as social, index (index)  }
-                        <div in:fly='{{x:-200, duration:500}}' animate:flip='{{duration: 500}}'>
-                            {#if social.username}
-                                <a href="{social.url}" out:fly='{{x:-200, duration:500}}'>
-                                    <span><i class="fab fa-{social.icon}"></i>{social.username}</span>
-                                </a>
-                            {/if}
-                        </div>
+                <!-- End soft skills -->
+
+                <!-- start langs -->
+                <div class="card langs">
+                    <div class="card-title">
+                        <span>Languages</span>
+                    </div>
+                    <div class="card-content">
+                        {#each CV.languages as  language, index (index)}
+                            <div class="lang" animate:flip='{{duration: 500}}'>
+                                <h4 transition:fly='{{x:-200, duration:500}}'>{language.language}</h4>
+                                <span transition:fly='{{x:-200, duration:500}}'>{language.level}</span>
+                            </div>
+                        {/each}
+
+                    </div>
+                </div>
+                <!-- End lang -->
+
+                <!-- start langs -->
+                <div class="card social">
+                    <div class="card-title">
+                        <span>Social</span>
+                    </div>
+                    <div class="card-content">
+                        {#each CV.socials as social, index (index)  }
+                            <div in:fly='{{x:-200, duration:500}}' animate:flip='{{duration: 500}}'>
+                                {#if social.username}
+                                    <a href="{social.url}" out:fly='{{x:-200, duration:500}}'>
+                                        <span><i class="fab fa-{social.icon}"></i>{social.username}</span>
+                                    </a>
+                                {/if}
+                            </div>
                     {/each}
                     
                 </div>
@@ -137,7 +138,7 @@
                 <!-- Start cards -->
 
                 <!-- start about me -->
-                <div class="my-card about">
+                <div class="card about">
                     <div class="title">
                         <span>About Me</span>
                     </div>
@@ -150,7 +151,7 @@
                 <!-- start about me -->
 
                 <!-- start Edu -->
-                <div class="my-card edu">
+                <div class="card edu">
                     <div class="title">
                         <span>Education</span>
                     </div>
@@ -174,7 +175,7 @@
                 <!-- start Experience -->
 
                 <!-- start Experience -->
-                <div class="my-card exp">
+                <div class="card exp">
                     <div class="title">
                         <span>Experience</span>
                     </div>
@@ -201,7 +202,7 @@
                 <!-- start Experience -->
 
                 <!-- start certifications -->
-                <div class="my-card cert">
+                <div class="card cert">
                     <div class="title">
                         <span>certifications</span>
                     </div>
@@ -232,9 +233,11 @@
     <!-- end right container -->
     </div>
 </div>
+
 <div id="print-svg" class="print"></div>
+
 <style>
-    /* CV Main Container */
+       /* CV Main Container */
 
     :root {
         --white: #ffffff;
@@ -282,6 +285,9 @@
         border-color: var(--cyan);
     }
 
+    /* colors class */
+
+
     * :not(i) {
         font-family: Almarai;
         box-sizing: border-box;
@@ -290,107 +296,112 @@
     }
 
 
-    .my-container {
+    .container {
+        width: 210mm;
+        height: 297mm;
         margin: auto;
-        width: 95%;
         min-height: 100px;
-        
-        display: flex;
-        align-items: stretch;
-
+        border: 1px solid #CCC;
     }
+
     #print-doc {
         display: flex;
         align-items: stretch;
+        width: 100%;
+        height: 100%;
     }
+
     /* Colors Classes */
 
     /* side */
-    .my-container .side {
+    .container .side {
         width: 30%;
-        padding-top: 10px;
+        padding: 10px;
+        padding-top: 20px;
         border-right-width: 1px;
         border-right-style: solid;
-        position: relative;
+        font-size: 12pt;
     }
 
-    .my-container .side .my-card {
-        padding: 1vw;
-        
-    }
-
-    .my-container .side .image {
+    .container .side .image {
         text-align: center;
+        margin-bottom: 18px;
     }
 
-    .my-container .side #user-profile-image {
-        width: 18vw;
-        height: 18vw;
-        object-fit: cover;
-        object-position: center;
+    .container .side .image img {
+        width: 80%;
+        height: 80%;
         border-radius: 50%;
         border: 1px solid var(--white)
     }
 
-    .my-container .side .my-card .card-title {
-        padding-left: 0.5vw;
-        padding-bottom: 0.9vw;
+    .container .side .card {
+        margin-bottom: 20px;
+        color: inherit;
+
+    }
+
+    .container .side .card::after {
+        padding-top: 5px;
+        content: '';
+        display: block;
+        width: 50%;
+        margin: auto;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+
+    .container .side .card .card-title {
         text-align: left;
         font-weight: bold;
         font-family: Tajawal;
         color: inherit;
-
     }
 
-    .my-container .side .my-card .card-title span {
-        font-size: 2vw;
+    .container .side .card .card-title span {
+        font-size: 16pt;
         text-transform: capitalize;
         color: inherit;
     }
 
-    .my-container .side .my-card .card-content {
+    .container .side .card .card-content {
         padding-left: 0.5vw;
     }
-    .my-container .side .social .card-content span,
-    .my-container .side .my-card .card-content span {
-        font-size: 1.1vw;
+
+    .container .side .card .card-content span {
+        font-size: 12pt;
         color: inherit;
     }
 
     /* personal info */
-    .my-container .side .social span,
-    .my-container .side .contact span {
+    .container .side .social span,
+    .container .side .contact span {
         display: block;
-        padding-bottom: 0.7vw;
+        padding-bottom: 7px;
+        color: inherit;
     }
 
-    .my-container .side .social span:last-of-type,
-    .my-container .side .contact span:last-of-type{
-        padding-bottom: 0;
-    }
-
-    .my-container .side .social a,
-    .my-container .side .contact a {
+    .container .side .social a,
+    .container .side .contact a {
         color: inherit;
         text-decoration: inherit;
     }
 
-    .my-container .side .social span i,
-    .my-container .side .contact span i {
+    .container .side .social span i,
+    .container .side .contact span i {
         padding-right: 0.3vw;
     }
 
     /* end personal info */
 
     /* start skills */
-    .my-container .side .skills .card-content span {
+    .container .side .skills .card-content span {
         display: inline-block;
-        padding: 1.05vw 1vw;
-        margin: 0.252vw 0.252vw 0.252vw 0;
-        border-radius: 0.630vw;
+        padding: 5px;
+        margin: 2px 2px 2px 0;
+        border-radius: 5px;
         font-weight: 500;
-        background-color: var(--teal);
-        color: var(--white);
+        background-color: teal;
+        color: whitesmoke;
 
     }
 
@@ -398,17 +409,17 @@
 
 
     /* start soft skills */
-    .my-container .side .soft .card-content ul {
+    .container .side .soft .card-content ul {
         padding: 0;
         padding-left: .9vw;
         margin: 0;
 
     }
 
-    .my-container .side .soft .card-content ul li {
+    .container .side .soft .card-content ul li {
         list-style-type: circle;
         padding-bottom: 5px;
-        font-size: 1.4vw;
+        font-size: 12pt;
 
     }
 
@@ -416,20 +427,21 @@
 
 
     /* start soft langs */
-    .my-container .side .langs .card-content>div {
-        padding-bottom: 0.7vw;
-        padding-right: 0.5vw;
+    /* start soft langs */
+    .container .side .langs .card-content .lang {
+        padding-bottom: 10pxw;
+
     }
 
-    .my-container .side .langs .card-content h4 {
-        font-size: 1.4vw;
+    .container .side .langs .card-content h4 {
+        font-size: 14pt;
         text-transform: uppercase;
         margin: 0 0 5px 0;
 
     }
 
-    .my-container .side .langs .card-content div>span {
-        font-size: 1.2vw;
+    .container .side .langs .card-content div>span {
+        font-size: 12pt;
         display: block;
         margin-bottom: 0.630vw;
     }
@@ -437,14 +449,16 @@
 
     /* end soft langs */
 
+    /* end soft langs */
+
 
     /* start right container */
 
     .right {
-        float: right;
         background-color: var(--white);
         width: 70%;
         padding: 10px 30px;
+        padding-top: 20px;
     }
 
     /* start name container */
@@ -453,14 +467,14 @@
     }
 
     .right .name-dev h1 {
-        font-size: 3vw;
-        margin-bottom: 2.519vw;
+        font-size: 20pt;
+        margin-bottom: 8px;
         text-transform: capitalize;
     }
 
     .right .name-dev h4 {
-        font-size: 1.8vw;
-        margin-top: 1.259vw;
+        font-size: 14pt;
+        margin-top: 0;
         text-transform: capitalize;
     }
 
@@ -475,35 +489,38 @@
 
     /* start details container */
     .right .details {
-        padding-left: 0px;
+        padding-left: 0;
     }
 
-    .right .details .my-card {
+    .right .details .card {
         border-bottom: 2px solid #cccccc57;
-        margin-top: 1.149vw;
-        margin-bottom: 0.9vw;
+        margin-top: 5px;
+        margin-bottom: 20px;
     }
 
-    .right .details .my-card .title {
+    .right .details .card .title {
         padding-left: 0px;
-        font-size: 2.2vw;
+        font-size: 16pt;
         font-weight: bold;
         padding-bottom: 15px;
     }
 
-    .right .details .my-card .content {
+    .right .details .card .content {
         padding-left: 0px;
-        font-size: 1.4vw;
+        font-size: 12pt;
         font-weight: normal;
         text-align: justify;
         text-justify: inter-word;
 
     }
 
+    .right .details .card .content div {
+        margin-bottom: 15px;
+    }
+
     /* start about */
     .right .details .about .content {
-        margin-bottom: 2.519vw;
-
+        margin-bottom: 20px;
     }
 
     .right .details .about .content p {
@@ -517,25 +534,18 @@
     /* start edu */
 
     .right .details .edu .content .item {
-        margin-bottom: 2.519vw;
-
+        margin-bottom: 12px;
     }
 
-    .right .details .edu .content div.degree-container {
-        margin: 0;
-    }
+
     .right .details .edu .content div .degree {
         font-size: 1.5vw;
     }
-    .right .details .edu .content .date,
-    .right .details .edu .content .country {
-        font-size: 1vw;
-    }
 
-    .right .details .edu .content div.college p{
+    .right .details .edu .content div .university,
+    .right .details .edu .content div .college,
+    .right .details .edu .content div .country {
         font-size: 1.2vw;
-        padding: 0;
-        margin: 0;
     }
 
 
@@ -560,7 +570,7 @@
 
     .right .details .exp .content div .to,
     .right .details .exp .content div .from {
-       font-size: 1vw;
+        font-size: 0.9vw;
     }
 
     .right .details .exp .content div .as {
@@ -645,10 +655,10 @@
     }
 
 
-/* 
+
     .contact-feild div {
         position: relative;
-    } */
+    }
 
     .contact-feild div span {
         display: block;

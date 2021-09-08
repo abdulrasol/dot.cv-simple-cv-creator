@@ -36,8 +36,9 @@
                     <TextArea id='about-me' title='About Me' bind:value={bio}></TextArea>
                     <div class="uk-margin">
                         <label class="uk-form-label" for='img-select'>Profile Image</label>
-                        <div class="uk-form-controls">
-                            <input on:change={handleImage} class="uk-input" id='img-select' type="file" accept="image/*" name="file" bind:value={image}/>
+                        <div uk-form-custom>
+                            <input on:change={handleImage} id='img-select' type="file" accept="image/*" name="file" bind:value={image}>
+                            <button class="uk-button uk-button-default" type="button" tabindex="-1">Select Profile Picture</button>
                         </div>
                     </div>
                     
