@@ -1,6 +1,7 @@
 <script>
     import domtoimage from 'dom-to-image';
     import { saveAs } from 'file-saver';
+    import Modal from '../shared/Modal.svelte';
     import PersonalInfoForm from '../forms/PersonalInfoForm.svelte';
     import ContactForm from '../forms/ContactForm.svelte';
     import ProfSkillsForm from '../forms/ProfSkillsForm.svelte';
@@ -11,14 +12,21 @@
     import ExperienceForm from '../forms/ExperienceForm.svelte';
     import CertificationsForm from '../forms/CertificationsForm.svelte';
     import CV from '../Stores/CVStore';
+    import { fade } from 'svelte/transition';
     
-    const handlePrint = () => {
+    async function download() {
         let node = document.getElementById('print-doc');
-        domtoimage.toPng(node).then(function (blob) 
-            {   
-                window.saveAs(blob, `${$CV.name}.png`);
-            });
-    };
+        const res = await domtoimage.toPng(node).then(function (blob) {   
+            window.saveAs(blob, `${$CV.name}.png`);
+        });
+    }
+        
+    let promise = download();
+
+    function handleClick() {
+        promise = download();
+    }
+    
     
 </script>
 
@@ -33,9 +41,21 @@
     <CertificationsForm></CertificationsForm>
     <SocialForm></SocialForm>
     
-    <!-- <Button on:click()={handlePrint}>Print</Button> -->
     <div>
-        <button class="uk-button uk-button-default" on:click={handlePrint}>Download</button>
+        <button class="uk-button uk-button-default" on:click={handleClick}>Download</button>
+        {#await promise}
+            <div class="downloading" in:fade|local={{duration:500}}>
+                <button class="uk-button uk-button-default" disabled >Downloading</button>
+            </div>
+        {/await } 
+          
     </div>
     
 </div>
+
+<style>
+    .downloading{
+        width: 100%;
+        margin: 5px auto;
+    }
+</style>
