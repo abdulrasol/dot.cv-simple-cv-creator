@@ -1,6 +1,14 @@
+<script>
+const date = new Date();
+
+let year = date.getFullYear();
+</script>
+
+
+
 <footer>
     <div>
-        Copyright 2021 Dot.Devs
+        Copyright {year} Dot.tech Devs
     </div>
 </footer>
 
